@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YASH'S BANK - Customer Dashboard</title>
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Load Lucide icons for clean UI elements -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="mobile-backdrop" class="mobile-backdrop" onclick="toggleMobileSidebar()"></div>
+
+    <!-- Mobile Sidebar -->
+    <aside id="mobile-sidebar" class="mobile-sidebar">
+        <div class="sidebar__content">
+            <h1 class="sidebar__logo-mobile">Nexus Bank</h1>
+            <nav class="sidebar__nav">
+                <a href="#" class="sidebar__nav-link active">
+                    <i data-lucide="layout-dashboard"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="sidebar__nav-link">
+                    <i data-lucide="wallet"></i>
+                    Accounts
+                </a>
+                <a href="#" class="sidebar__nav-link">
+                    <i data-lucide="send"></i>
+                    Transfers
+                </a>
+                <a href="#" class="sidebar__nav-link">
+                    <i data-lucide="bar-chart-3"></i>
+                    Investments
+                </a>
+                <a href="#" class="sidebar__nav-link">
+                    <i data-lucide="settings"></i>
+                    Settings
+                </a>
+            </nav>
+            <div class="sidebar__footer">
+                <a href="#" class="sidebar__nav-link">
+                    <i data-lucide="log-out"></i>
+                    Sign Out
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Application Container -->
+    <div class="app-container">
+
+        <!-- Desktop Sidebar -->
+        <aside class="desktop-sidebar">
+            <div class="sidebar__content">
+                <h1 class="sidebar__logo-desktop">YASH BANK'S</h1>
+                <nav class="sidebar__nav">
+                    <a href="#" class="sidebar__nav-link active">
+                        <i data-lucide="layout-dashboard"></i>
+                        Dashboard
+                    </a>
+                    <a href="#" class="sidebar__nav-link">
+                        <i data-lucide="wallet"></i>
+                        Accounts
+                    </a>
+                    <a href="#" class="sidebar__nav-link">
+                        <i data-lucide="send"></i>
+                        Transfers
+                    </a>
+                    <a href="#" class="sidebar__nav-link">
+                        <i data-lucide="bar-chart-3"></i>
+                        Investments
+                    </a>
+                    <a href="#" class="sidebar__nav-link">
+                        <i data-lucide="settings"></i>
+                        Settings
+                    </a>
+                </nav>
+                <div class="sidebar__footer-desktop">
+                    <a href="#" class="sidebar__nav-link">
+                        <i data-lucide="log-out"></i>
+                        Sign Out
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Header/Navbar -->
+            <header class="header">
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileSidebar()" class="header__menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+
+                <h2 class="header__title">Welcome back, yash!</h2>
+                
+                <div class="header__user-controls">
+                    <button class="header__icon-btn">
+                        <i data-lucide="bell"></i>
+                    </button>
+                    <div class="header__user-profile">
+                        <span class="header__user-name">yash vijay</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- COLUMN 1 & 2: Account Overview and Quick Actions -->
+                <div class="dashboard-grid__main">
+                    
+                    <!-- Account Overview Card -->
+                    <div class="card account-overview-card">
+                        <div class="account-overview-card__header">
+                            <div>
+                                <h3 class="account-overview-card__title">Checking Account (***1234)</h3>
+                                <div class="account-overview-card__balance-wrapper">
+                                    <span id="current-balance" class="account-overview-card__balance">
+                                        $14,567<span class="account-overview-card__balance-cents">.89</span>
+                                    </span>
+                                    <span id="hidden-balance" class="account-overview-card__balance hidden">
+                                        $****.**
+                                    </span>
+                                    <button onclick="toggleBalance()" class="account-overview-card__toggle-btn">
+                                        <i id="eye-icon" data-lucide="eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="account-overview-card__status">
+                                ACTIVE
+                            </div>
+                        </div>
+
+                        <div class="account-overview-card__footer">
+                            <div>
+                                <p class="account-overview-card__footer-label">Last Activity</p>
+                                <p class="account-overview-card__footer-value">Oct 26, 2025</p>
+                            </div>
+                            <button class="button--secondary">
+                                <i data-lucide="chevrons-right"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="card quick-actions-card">
+                        <h3 class="card__title">Quick Actions</h3>
+                        <div class="quick-actions-card__grid">
+                            <!-- Action 1: Transfer Funds -->
+                            <button class="quick-actions-card__btn">
+                                <i data-lucide="arrow-right-left" class="icon-primary"></i>
+                                <span>Transfer</span>
+                            </button>
+                            <!-- Action 2: Pay Bill -->
+                            <button class="quick-actions-card__btn">
+                                <i data-lucide="receipt" class="icon-green"></i>
+                                <span>Pay Bill</span>
+                            </button>
+                            <!-- Action 3: Deposit Check -->
+                            <button class="quick-actions-card__btn">
+                                <i data-lucide="camera" class="icon-orange"></i>
+                                <span>Deposit</span>
+                            </button>
+                            <!-- Action 4: Manage Cards -->
+                            <button class="quick-actions-card__btn">
+                                <i data-lucide="credit-card" class="icon-red"></i>
+                                <span>Cards</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions List -->
+                    <div class="card transactions-card">
+                        <div class="card__header">
+                            <h3 class="card__title">Recent Transactions</h3>
+                            <a href="#" class="card__view-all-link">View All</a>
+                        </div>
+                        
+                        <ul class="transaction-list">
+                            <!-- Transaction 1 (Debit) -->
+                            <li class="transaction-list__item">
+                                <div class="transaction-list__item-details">
+                                    <div class="transaction-list__item-icon-wrapper icon-bg-red">
+                                        <i data-lucide="shopping-cart" class="icon-red"></i>
+                                    </div>
+                                    <div>
+                                        <p class="transaction-list__item-title">Amazon Marketplace</p>
+                                        <p class="transaction-list__item-subtitle">Online Purchase • Oct 26</p>
+                                    </div>
+                                </div>
+                                <div class="transaction-list__item-amount">
+                                    <p class="transaction-list__item-amount--debit">-Rs125.50</p>
+                                    <p class="transaction-list__item-account">Checking</p>
+                                </div>
+                            </li>
+                            <!-- Transaction 2 (Credit) -->
+                            <li class="transaction-list__item">
+                                <div class="transaction-list__item-details">
+                                    <div class="transaction-list__item-icon-wrapper icon-bg-green">
+                                        <i data-lucide="banknote" class="icon-green"></i>
+                                    </div>
+                                    <div>
+                                        <p class="transaction-list__item-title">Salary Deposit (Payroll)</p>
+                                        <p class="transaction-list__item-subtitle">Direct Deposit • Oct 25</p>
+                                    </div>
+                                </div>
+                                <div class="transaction-list__item-amount">
+                                    <p class="transaction-list__item-amount--credit">+Rs2,800.00</p>
+                                    <p class="transaction-list__item-account">Checking</p>
+                                </div>
+                            </li>
+                            <!-- Transaction 3 (Debit) -->
+                            <li class="transaction-list__item">
+                                <div class="transaction-list__item-details">
+                                    <div class="transaction-list__item-icon-wrapper icon-bg-blue">
+                                        <i data-lucide="utensils" class="icon-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="transaction-list__item-title">Local Coffee Shop</p>
+                                        <p class="transaction-list__item-subtitle">Card Payment • Oct 25</p>
+                                    </div>
+                                </div>
+                                <div class="transaction-list__item-amount">
+                                    <p class="transaction-list__item-amount--debit">-Rs5.75</p>
+                                    <p class="transaction-list__item-account">Checking</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- COLUMN 3: Other Accounts & Support -->
+                <div class="dashboard-grid__sidebar">
+                    
+                    <!-- Other Accounts -->
+                    <div class="card">
+                        <h3 class="card__title">Other Accounts</h3>
+                        <div class="other-accounts__list">
+                            <!-- Savings Account -->
+                            <div class="other-accounts__item">
+                                <div class="other-accounts__item-details">
+                                    <i data-lucide="piggy-bank" class="icon-green-dark"></i>
+                                    <div>
+                                        <p class="other-accounts__item-title">Savings</p>
+                                        <p class="other-accounts__item-subtitle">***9012</p>
+                                    </div>
+                                </div>
+                                <p class="other-accounts__item-balance">
+                                    $45,200.00
+                                </p>
+                            </div>
+                            <!-- Credit Card -->
+                            <div class="other-accounts__item">
+                                <div class="other-accounts__item-details">
+                                    <i data-lucide="credit-card" class="icon-red-dark"></i>
+                                    <div>
+                                        <p class="other-accounts__item-title">Credit Card</p>
+                                        <p class="other-accounts__item-subtitle">***7890</p>
+                                    </div>
+                                </div>
+                                <p class="other-accounts__item-balance--debit">
+                                    -$1,890.50
+                                </p>
+                            </div>
+                        </div>
+                        <button class="button--outline">
+                            Add New Account
+                        </button>
+                    </div>
+
+                    <!-- Financial Health Tip -->
+                    <div class="card financial-tip-card">
+                        <h3 class="card__title financial-tip-card__title">
+                            <i data-lucide="sparkles"></i>
+                            Financial Tip
+                        </h3>
+                        <p class="card__text">
+                            Automate your savings! Set up a recurring transfer of 10% of your income immediately after payday to boost your long-term goals.
+                        </p>
+                        <a href="#" class="card__link">Learn More about Automation</a>
+                    </div>
+                    
+                    <!-- Support/Contact -->
+                    <div class="card">
+                        <h3 class="card__title">Need Help?</h3>
+                        <p class="card__text">
+                            Our support team is available 24/7 to assist you.
+                        </p>
+                        <button class="button--primary">
+                            <i data-lucide="message-square"></i>
+                            Live Chat
+                        </button>
+                        <p class="support-card__phone">Or call us at (800) NEX-BANK</p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <footer class="footer">
+                &copy; 2025 yash Bank. All rights reserved.
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript for Balance Toggle and Mobile Sidebar -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // --- Balance Visibility Toggle ---
+        function toggleBalance() {
+            const currentBalance = document.getElementById('current-balance');
+            const hiddenBalance = document.getElementById('hidden-balance');
+            const eyeIcon = document.getElementById('eye-icon');
+
+            if (currentBalance.classList.contains('hidden')) {
+                // Show balance
+                currentBalance.classList.remove('hidden');
+                hiddenBalance.classList.add('hidden');
+                eyeIcon.setAttribute('data-lucide', 'eye');
+            } else {
+                // Hide balance
+                currentBalance.classList.add('hidden');
+                hiddenBalance.classList.remove('hidden');
+                eyeIcon.setAttribute('data-lucide', 'eye-off');
+            }
+            // Re-render Lucide icons after changing the data-lucide attribute
+            lucide.createIcons();
+        }
+
+        // --- Mobile Sidebar Toggle ---
+        function toggleMobileSidebar() {
+            const body = document.body;
+            const mobileSidebar = document.getElementById('mobile-sidebar');
+            const mobileBackdrop = document.getElementById('mobile-backdrop');
+
+            body.classList.toggle('sidebar-open');
+
+            if (body.classList.contains('sidebar-open')) {
+                mobileBackdrop.classList.remove('hidden');
+            } else {
+                // Delay hiding the backdrop until after the transition
+                setTimeout(() => {
+                    mobileBackdrop.classList.add('hidden');
+                }, 300); 
+            }
+        }
+    </script>
+
+</body>
+</html>
