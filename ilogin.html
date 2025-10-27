@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page template</title>
+    
+    <!-- Standard CSS Block -->
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        /* Login Card Styling */
+        .login-card {
+            width: 100%;
+            max-width: 384px; /* Equivalent to max-w-sm */
+            background-color: #ffffff;
+            padding: 2rem;
+            border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+            border-radius: 0.5rem; /* Equivalent to rounded-lg */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Equivalent to shadow-md */
+        }
+
+        /* Header Styling */
+        .card-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem; /* Equivalent to text-2xl */
+            font-weight: 700; /* Equivalent to font-bold */
+            color: #1f2937; /* Equivalent to text-gray-800 */
+        }
+
+        .card-subtitle {
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            color: #6b7280; /* Equivalent to text-gray-500 */
+            margin-top: 0.25rem;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group:last-of-type {
+            margin-bottom: 1.5rem; /* Equivalent to mb-6 for password field */
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            font-weight: 500; /* Equivalent to font-medium */
+            color: #374151; /* Equivalent to text-gray-700 */
+            margin-bottom: 0.25rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem; /* Equivalent to px-3 py-2 */
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem; /* Equivalent to rounded-md */
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4f46e5; /* Equivalent to focus:ring-indigo-500 */
+            box-shadow: 0 0 0 1px #4f46e5;
+        }
+
+        /* Status Message Styling */
+        .status-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .status-message.success {
+            background-color: #d1fae5; /* bg-green-100 */
+            color: #065f46; /* text-green-700 */
+        }
+
+        .status-message.error {
+            background-color: #fee2e2; /* bg-red-100 */
+            color: #991b1b; /* text-red-700 */
+        }
+
+        /* Login Button Styling */
+        .login-button {
+            width: 100%;
+            background-color: #4f46e5; /* Equivalent to bg-indigo-600 */
+            color: white;
+            font-weight: 600; /* Equivalent to font-semibold */
+            padding: 0.5rem 0; /* Equivalent to py-2 */
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+        }
+
+        .login-button:hover {
+            background-color: #4338ca; /* Equivalent to hover:bg-indigo-700 */
+        }
+        
+        .login-button:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #4f46e5; /* focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 */
+        }
+
+        /* Link Styling */
+        .link-group {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.75rem; /* Equivalent to text-xs */
+        }
+
+        .action-link {
+            color: #4f46e5; /* Equivalent to text-indigo-600 */
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        .action-link:hover {
+            color: #3730a3; /* Equivalent to hover:text-indigo-800 */
+        }
+
+        .separator {
+            margin: 0 0.5rem;
+            color: #9ca3af; /* Equivalent to text-gray-400 */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Login Card Container -->
+    <div class="login-card">
+
+        <!-- Header Section -->
+        <header class="card-header">
+            <h1 class="card-title">
+                Customer Login
+            </h1>
+            <p class="card-subtitle">Access your secure account.</p>
+        </header>
+
+        <!-- Form Section -->
+        <main>
+            <div id="status-message" class="status-message hidden error" role="alert">
+                <!-- Message will be displayed here on attempted login -->
+            </div>
+
+            <form id="login-form">
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username" class="form-label">
+                        Username
+                    </label>
+                    <input type="text" id="username" name="username" required
+                           placeholder="Enter username"
+                           class="form-input">
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        Password
+                    </label>
+                    <input type="password" id="password" name="password" required
+                           placeholder="Enter password"
+                           class="form-input">
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-button">
+                    Log In
+                </button>
+            </form>
+
+            <!-- Forgot Password / Enrollment Links -->
+            <div class="link-group">
+                <a href="#" class="action-link">
+                    Forgot Password?
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Minimal JavaScript for form handling -->
+    <script>{
+            // Show a simple success/failure message
+            if (username && password) {
+                statusMessage.textContent = 'Login attempt successful! (No backend connected)';
+                statusMessage.classList.add('success');
+            } else {
+                statusMessage.textContent = 'Please fill in both fields.';
+                statusMessage.classList.add('error');
+            }
+        };
+    </script>
+</body>
+</html>
